@@ -2,7 +2,7 @@ helm:
   chart: /workspace/source/cloudbees-agent
   releaseName: cloudbees-agent-bel
   version: 0.1.0
-  force: false
+  force: true
   values:
     agent:
       namespace: agent-bel-cloudbees
