@@ -1,0 +1,3 @@
+cjoc:
+  serviceAccountName: cjoc
+  namespace: default

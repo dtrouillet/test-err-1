@@ -1,0 +1,10 @@
+defaultNamespace: controller-k8s-cloudbees
+helm:
+  chart: /workspace/source/cloudbees-controller
+  releaseName: controller-k8s-cloudbees
+  version: 0.1.0
+  force: true
+  values:
+    cjoc:
+      serviceAccountName: cjoc
+      namespace: cjoc-cloudbees

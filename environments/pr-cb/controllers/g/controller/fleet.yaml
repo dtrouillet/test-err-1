@@ -1,0 +1,20 @@
+defaultNamespace: controller-dpsservices-cloudbees
+helm:
+  repo: https://charts.cloudbees.com/public/cloudbees
+  chart: cloudbees-core
+  version: 3.54.4
+  releaseName: cloudbees
+  force: true # Permet de recréer les ressources qui ne peuvent pas être mise à jour
+  values:
+    Agents:
+      Enabled: true
+      SeparateNamespace:
+        Enabled: true
+        Name: "agent-dpsservices-cloudbees"
+        Create: true
+    OperationsCenter:
+      Enabled: false
+    Hibernation:
+      Enabled: false
+    Master:
+      Enabled: true

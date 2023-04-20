@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: casc-test
+  namespace: cjoc-cloudbees
+data:
+  test: "test"

@@ -1,0 +1,5 @@
+apiVersion: v2
+name: cloudbees-controller
+description: Création des différents controllers cloudbees
+version: 0.1.0
+appVersion: "0.1.0"

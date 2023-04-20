@@ -1,0 +1,43 @@
+defaultNamespace: cjoc-cloudbees
+helm:
+  repo: https://charts.cloudbees.com/public/cloudbees
+  chart: cloudbees-core
+  version: 3.54.4
+  releaseName: cloudbees
+  force: true # Permet de recréer les ressources qui ne peuvent pas être mise à jour
+  values:
+    Subdomain: true
+    Agents:
+      Enabled: true
+    OperationsCenter:
+      CSRF:
+        ProxyCompatibility: true
+      HostName: test.fr
+      Protocol: "https"
+      CasC:
+        Enabled: true
+        ConfigMapName: casc-test
+      Resources:
+        Limits:
+          Cpu: 4
+          Memory: 4G
+        Requests:
+          Cpu: 4
+          Memory: 4G
+    Hibernation:
+      Enabled: false
+    Persistence:
+      StorageClass: ontap-gold
+    Master:
+      Enabled: true
+targetCustomizations:
+  - name: pr-cloudbees
+    yaml:
+      overlays:
+        - casc
+    clusterSelector:
+      matchExpressions:
+        - key: provider.cattle.io
+          operator: NotIn
+          values:
+            - harvester
